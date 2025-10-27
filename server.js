@@ -3,12 +3,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 // =================================================================
-// ⚠️ 1. PEGAR SU CADENA DE CONEXIÓN COMPLETA AQUÍ ⚠️
-// Ejemplo: mongodb+srv://tecnicohostelcleaning_db_user:uTJthPtm58CWDonl@horeca-gps.js4t6cy.mongodb.net/?appName=HORECA-GPS
-const mongoURI = 'mongodb+srv://tecnicohostelcleaning_db_user:utJthPtm58CwD0nl@horeca-gps.js4t6cy.mongodb.net/?appName=HORECA-GPS'; 
+// ⚠️ CAMBIO CRUCIAL: Leer la URI de la Variable de Entorno
+// La URI se configurará como una variable secreta en Google Cloud Run
+const mongoURI = process.env.MONGO_URI; 
 // =================================================================
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 const app = express();
 
 app.use(express.json()); 
