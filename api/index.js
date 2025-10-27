@@ -74,7 +74,5 @@ app.get('/', (req, res) => {
     res.send('Servidor GPS HORECA operativo. Endpoints: /api/reportar_ubicacion (POST) y /api/ubicaciones_actuales (GET).');
 });
 
-// Inicialización del servidor
-app.listen(port, () => {
-    console.log(`Servidor escuchando en http://localhost:${port}`);
-});
+// ⚠️ CAMBIO CRUCIAL: Exportar la aplicación Express para Vercel
+module.exports = app;
