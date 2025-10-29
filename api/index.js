@@ -29,7 +29,7 @@ const ubicacionSchema = new mongoose.Schema({
 const Ubicacion = mongoose.model('Ubicacion', ubicacionSchema);
 
 // --- 3. Endpoint para Recibir Datos (POST) ---
-app.post('/api/reportar_ubicacion', async (req, res) => {
+app.post('/reportar_ubicacion', async (req, res) => {
     try {
         const { idComercial, latitud, longitud } = req.body;
 
@@ -48,7 +48,7 @@ app.post('/api/reportar_ubicacion', async (req, res) => {
 });
 
 // --- 4. Endpoint para Consultar Datos (GET) ---
-app.get('/api/ubicaciones_actuales', async (req, res) => {
+app.get('/ubicaciones_actuales', async (req, res) => {
     try {
         const ultimasUbicaciones = await Ubicacion.aggregate([
             { $sort: { timestamp: -1 } }, 
